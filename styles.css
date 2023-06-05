@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;200;300;400;500;600&display=swap');
+
+body {
+  background: linear-gradient(0deg, #080808, 0%, #1f1f1f 100%);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+.container {
+  position: relative;
+}
+
+.flip-box {
+  background-color: transparent;
+  width: 604px;
+  height: 345px;
+  perspective: 1000px;
+}
+
+.container::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 25px;
+  background: #000;
+  filter: blur(35px);
+  transition: 1.2s;
+  z-index: -1;
+  perspective: 0px;
+} 
+
+.flip-box-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 1.2s ease;
+  transform-style: preserve-3d;
+  margin: 0;
+}
+
+.flip-box:hover .flip-box-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-box:hover::after {
+  transform: translate(-50%, -50%) rotateY(180deg);
+}
+
+.flip-box-front, .flip-box-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 25px;
+}
+
+.flip-box-front {
+  background: url(https://cdn.pixabay.com/photo/2021/05/17/09/53/hexagon-6260207_1280.jpg) center;
+  transform: rotateY(0deg);
+  opacity: 1; /* Set initial opacity to 1 */
+}
+
+.flip-box-back {
+  background: url(https://cdn.pixabay.com/photo/2021/05/17/09/53/hexagon-6260207_1280.jpg) center;
+  transform: rotateY(180deg);
+  opacity: 0; /* Set initial opacity to 0 */
+}
+
+.flip-box:hover .flip-box-front {
+  opacity: 0; /* Change opacity on hover */
+}
+
+.flip-box:hover .flip-box-back {
+  opacity: 1; /* Change opacity on hover */
+}
+
+/* Front of Card  */
+.front-content-container {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+
+}
+
+.logo {
+  margin-top: 55px;
+  height: 180px;
+  width: 180px;
+}
+
+.name{
+  margin: -20px 0 0;
+  font-size: 28px;
+  color: #CFFFF7;
+}
+
+.title {
+  font-size: 20px;
+  margin: -5px 0 0;
+  color: #9bbeb8;
+  font-weight: 200;
+}
+/* Back of Card */
+.back-content-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+
+.social-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  
+  margin-top: 20px;
+}
+.social-container:first-child{
+  margin-top: 30%;
+}
+
+.social-text{
+  color: #CFFFF7;
+  font-size: 12px;
+  font-weight: 200;
+  margin-left: 30px;
+  text-align: right;
+}
+
+#icon {
+  font-size: 40px;
+  color: #CFFFF7;
+  margin: 0 10px;
+}
+
+#icon:hover {
+  color: rgb(49, 125, 175);
+}
+.front-left{
+  position: relative;
+  top: 40%;
+}
+
+.back-name{
+  margin: -20px 0 0;
+  font-size: 20px;
+  color: #CFFFF7;
+}
+
+.back-title {
+  font-size: 14px;
+  margin: -5px 0 0;
+  color: #9bbeb8;
+  font-weight: 200;
+}
+
+.logo-back {
+  height: 120px;
+  width: 120px;
+}
+
+.front-right-container {
+  display: flex;
+  flex-direction: column;
+  align-items:flex-start;
+  justify-content: center;
+  height: 100%;
+  margin: 20px 40px;
+
+}
+
+.back-border {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 1px;
+  height: 70%;
+  background-color: #fff;
+  transform: translateX(-50%);
+  z-index: 1;
+  margin-block: 10%;
+}
